@@ -28,6 +28,7 @@ pip install --upgrade pip virtualenv
 # Account to own server process
 useradd -m -d /home/pythonapp pythonapp
 
+pip install honcho
 # Fetch source code
 export HOME=/root
 git clone https://github.com/s258011/vibe.git /opt/app
@@ -36,7 +37,6 @@ git clone https://github.com/s258011/vibe.git /opt/app
 virtualenv -p python3 /opt/app/env
 source /opt/app/env/bin/activate
 /opt/app/env/bin/pip install -r /opt/app/requirements.txt
-/opt/app/env/bin/pip install honcho
 
 # Set ownership to newly created account
 chown -R pythonapp:pythonapp /opt/app
