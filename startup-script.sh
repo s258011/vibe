@@ -28,7 +28,7 @@ pip3 install --upgrade pip virtualenv
 # Account to own server process
 useradd -m -d /home/pythonapp pythonapp
 
-pip3 install honcho
+/opt/app/env/bin/pip3 install honcho
 # Fetch source code
 export HOME=/root
 git clone https://github.com/s258011/vibe.git /opt/app
