@@ -1,5 +1,5 @@
-from gevent import monkey
-monkey.patch_all()
+# from gevent import monkey
+# monkey.patch_all()
 from flask import Flask, request, render_template
 from flask_cors import CORS
 from flask_restful import Resource, Api, reqparse
@@ -76,13 +76,13 @@ def handle_my_custom_event_end():
     output = {
         'error': 'None',
         'response': {
-            'neutral': record_result[4],
-            'anger': record_result[0],
-            'disgust': record_result[1],
-            'fear': record_result[2],
-            'happiness': record_result[3],
-            'sadness': record_result[5],
-            'surprise': record_result[6]
+            'Neutral': record_result[4],
+            'Anger': record_result[0],
+            'Disgust': record_result[1],
+            'Fear': record_result[2],
+            'Happiness': record_result[3],
+            'Sadness': record_result[5],
+            'Surprise': record_result[6]
         }
     }
     record_result = [0, 0, 0, 0, 0, 0, 0]
@@ -156,13 +156,13 @@ class Image2(Resource):
             return {
                 'error': 'None',
                 'response': {
-                    'anger': str(predictions[0]),
-                    'disgust': str(predictions[1]),
-                    'fear': str(predictions[2]),
-                    'happiness': str(predictions[3]),
-                    'neutral': str(predictions[4]),
-                    'sadness': str(predictions[5]),
-                    'surprise': str(predictions[6])
+                    'Neutral': str(predictions[4]),
+                    'Anger': str(predictions[0]),
+                    'Disgust': str(predictions[1]),
+                    'Fear': str(predictions[2]),
+                    'Happiness': str(predictions[3]),
+                    'Sadness': str(predictions[5]),
+                    'Surprise': str(predictions[6])
                 }
             }
         except Exception as e:
@@ -196,4 +196,4 @@ def get_model():
 
 get_model()
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=8080)
+    socketio.run(app, debug=True, port=8090)
