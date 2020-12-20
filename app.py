@@ -6,6 +6,7 @@ from flask_restful import Resource, Api, reqparse
 from io import BytesIO
 import os
 
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import numpy as np
