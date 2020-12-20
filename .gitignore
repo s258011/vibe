@@ -4,9 +4,9 @@ README.md
 *.pyo
 *.pyd
 __pycache__
-.venv
-.venv/
-.vscode
-.vscode/
+venv
+venv/
+vscode
+vscode/
 rock1.png
 request.py
