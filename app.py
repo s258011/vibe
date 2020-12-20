@@ -197,4 +197,4 @@ def get_model():
 
 get_model()
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=8090)
+    socketio.run(app, debug=True, port=8080)
