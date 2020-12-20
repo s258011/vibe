@@ -1,6 +1,6 @@
 FROM python:3.7-slim
 
-ENV PORT 8080
+#ENV PORT 8080
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
