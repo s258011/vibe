@@ -1,5 +1,7 @@
 # from gevent import monkey
 # monkey.patch_all()
+import time
+
 from flask import Flask, request, render_template
 from flask_cors import CORS
 from flask_restful import Resource, Api, reqparse
@@ -96,13 +98,21 @@ def handle_my_custom_event(arg1):
     # emit('my response', ('foo', 'bar', json), namespace='/chat', callback=ack)
     # print('received args: ' + arg1)
     img = base64.decodebytes(arg1.split(',')[1].encode())
+    temp_file_name = 'static/img/' + str(time.time()) + '.jpg'
+    fh = open(temp_file_name, "wb")
+    fh.write(img)
+    fh.close()
+
     image = process_image(img, 48, 2)
     predictions = model2.predict(image)[0]
-    print(predictions[4])
-    print("max :" + str(max(predictions)))
+    print(predictions)
+    print("Natural :" + str(predictions[4]))
+    print("Max Val:" + str(max(predictions)))
     if predictions[4] != max(predictions):
         list3 = zip(record_result, predictions)
         record_result = [x + y for (x, y) in list3]
+    #print(list3)
+    #print(record_result.shape)
     print(record_result)
 
 
@@ -197,4 +207,4 @@ def get_model():
 
 get_model()
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=8080)
+    socketio.run(app, debug=True, port=8090)
